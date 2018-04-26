@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SeniorStore from '../store/seniors.db';
 import Senior from './senior';
+import PlusOneSecond from './plus_one_second';
+import SeniorDispatcher from '../dispatchers/senior_dispatcher';
 
 export default class SeniorList extends Component {
 
@@ -10,6 +12,11 @@ export default class SeniorList extends Component {
       //SeniorStore.fetchAllSeniors();
       seniors: SeniorStore.fetchAllSeniors()
     }
+    this.onChange = this.onChange.bind(this);
+  }
+
+  componentDidMount() {
+    SeniorStore.addChangeListener(this.onChange);
   }
 
   renderList() {
@@ -20,10 +27,27 @@ export default class SeniorList extends Component {
     });
   }
 
+  plus(url){
+    SeniorDispatcher.dispatch({
+      actionType: 'PLUS1S',
+      url: url
+    });
+  }
+
+  onChange() {
+    this.setState({
+      seniors: SeniorStore.fetchAllSeniors()
+    })
+  }
+
+
+
   render() {
     return (
       <ul>
         {this.renderList()}
+          <h5>+1S</h5>
+          <PlusOneSecond plus={this.plus} />
       </ul>
     );
   }

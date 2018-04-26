@@ -1,25 +1,24 @@
 import EventEmitter from '../event_emitter'
-export default class SeniorStore extends EventEmitter {
 
+const SeniorStore = new EventEmitter();
 
-  static fetchAllSeniors() {
-    return Seniors;
-  } 
+SeniorStore.fetchAllSeniors = function(){
+  return Seniors;
+}
 
-  emitChange() {
-    this.emit('change');
+SeniorStore.emitChange = function() {
+  this.emit('change');
+}
+
+SeniorStore.addChangeListener = function(listener) {
+  this.on('change', listener);
+}
+
+SeniorStore.plus1s = function(s) {
+  Seniors[Object.keys(Seniors).length + 1] = {
+    url: s
   }
-
-  addChangeListener(listener) {
-    this.on('change', listener);
-  }
-
-  plus1s(s) {
-    Seniors[Object.keys(Seniors).length + 1] = {
-      url: s
-    }
-  }
-
+  this.emitChange();
 }
 
 const Seniors = {
@@ -30,3 +29,5 @@ const Seniors = {
     url: "https://steam.indienova.com/pic/header/821/820710.jpg"
   }
 }
+
+export default SeniorStore;

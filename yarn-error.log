@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js run start:dev
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js start:dev
 
 PATH: 
   /Users/daniel/.rvm/gems/ruby-2.3.1/bin:/Users/daniel/.rvm/gems/ruby-2.3.1@global/bin:/Users/daniel/.rvm/rubies/ruby-2.3.1/bin:/usr/local/opt/openresty-openssl/bin:/usr/local/opt/postgresql@9.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/daniel/.rvm/bin:/Users/daniel/work/bin:/usr/local/opt/go/libexec/bin
@@ -5527,10 +5527,10 @@ Lockfile:
 
 Trace: 
   Error: Command failed.
-  Exit code: 1
+  Exit code: 127
   Command: sh
   Arguments: -c webpack-dev-server
-  Directory: /Users/daniel/Work/projects/frontend/flux_attempt
+  Directory: /Users/daniel/Work/projects/flux_attempt
   Output:
   
       at ProcessTermError.MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
