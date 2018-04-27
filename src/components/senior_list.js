@@ -6,26 +6,28 @@ import SeniorDispatcher from '../dispatchers/senior_dispatcher';
 
 export default class SeniorList extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      //SeniorStore.fetchAllSeniors();
-      seniors: SeniorStore.fetchAllSeniors()
-    }
-    this.onChange = this.onChange.bind(this);
+  state = { 
+    seniors: SeniorStore.fetchAllSeniors()
   }
 
+  // Once the component did mount, 
   componentDidMount() {
+    console.log('componentDidMount');
     SeniorStore.addChangeListener(this.onChange);
   }
+
+  onChange = () => this.setState({
+    seniors: SeniorStore.fetchAllSeniors()
+  });
 
   renderList() {
     return Object.entries(this.state.seniors).map((seniorWithIndexArray) => {
       return (
-        <Senior senior={seniorWithIndexArray[1]} />
+        <Senior key={seniorWithIndexArray[0]}  senior={seniorWithIndexArray[1]} />
       )
     });
   }
+
 
   plus(url){
     SeniorDispatcher.dispatch({
@@ -34,14 +36,8 @@ export default class SeniorList extends Component {
     });
   }
 
-  onChange() {
-    this.setState({
-      seniors: SeniorStore.fetchAllSeniors()
-    })
-  }
-
-
-
+  //class properties + arrow function syntax
+  // This gives the function context where it defined
   render() {
     return (
       <ul>

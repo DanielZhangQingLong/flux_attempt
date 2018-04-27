@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 
 export default class PlusOneSecond extends Component {
 
-  constructor(props) {
-    super(props);
-    this.onChange = this.onChange.bind(this);
-    this.onClick = this.onClick.bind(this);
-  }
-
   render() {
     return (
       <div>
@@ -17,15 +11,9 @@ export default class PlusOneSecond extends Component {
     )
   }
 
-  onChange(event) {
-    this.setState({
-      value: event.target.value
-    })
-  }
+  onChange = event => this.setState({value: event.target.value});
 
-  onClick(){
-    this.props.plus(this.state.value);
-  }
 
+  onClick = () =>  this.props.plus(this.state.value);
 
 }
