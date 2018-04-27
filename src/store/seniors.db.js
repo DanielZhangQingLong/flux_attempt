@@ -3,10 +3,10 @@ import EventEmitter from '../event_emitter'
 // Simulate a store. In real world, this should be an API request.
 const Seniors = {
   "1": {
-    url: "http://ww2.sinaimg.cn/large/84403255gw1f3g351wytoj20fa0bzdhm.jpg"
+    url: "http://photocdn.sohu.com/20140811/Img403316505.jpg"
   }, 
   "2": {
-    url: "https://steam.indienova.com/pic/header/821/820710.jpg"
+    url: "http://photocdn.sohu.com/20140811/Img403316505.jpg"
   }
 }
 
